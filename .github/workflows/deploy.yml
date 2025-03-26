@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Runs on every push to main
+      - main  # Make sure this matches your default branch
 
 permissions:
   contents: read
@@ -24,9 +24,9 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          name: github-pages
-          path: .  # Uploads the entire repo (adjust if needed)
+          path: .  # This uploads everything, including index.html
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
+
 
