@@ -19,14 +19,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # (Optional) Set up any environment (if you need npm, etc.)
+      # (Optional) Set up Node.js (if needed)
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
 
-      # (Optional) Install dependencies (if you have npm packages)
-      - name: Install dependencies 
+      # (Optional) Install dependencies (if needed)
+      - name: Install dependencies (if needed)
         run: |
           npm install  # or any relevant install command
 
@@ -37,9 +37,9 @@ jobs:
           name: github-pages
           path: ./  # Make sure this points to the correct folder (e.g., ./dist/ or ./)
 
-      # Deploy to GitHub Pages using the artifact
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
         with:
-          branch: main  # Or the branch you're deploying from
-          folder: ./   # Make sure this folder is correct (e.g., `./` or `./dist`)
+          artifact_name: github-pages  # Reference the uploaded artifact by its name
+          publish_dir: ./  # Make sure this points to the correct folder (e.g., ./dist/ or ./)
