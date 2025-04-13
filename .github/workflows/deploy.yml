@@ -19,6 +19,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # (Optional) Set up any environment (if you need npm, etc.)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # (Optional) Install dependencies (if you have npm packages)
+      - name: Install dependencies 
+        run: |
+          npm install  # or any relevant install command
+
       # Upload the files for GitHub Pages
       - name: Upload artifact
         uses: actions/upload-artifact@v4
